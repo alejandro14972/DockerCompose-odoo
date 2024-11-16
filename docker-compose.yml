@@ -19,6 +19,16 @@ services:
       - PGDATA=/var/lib/postgresql/data/pgdata
     volumes:
       - odoo-db-data:/var/lib/postgresql/data/pgdata
+  portainer:
+    image: portainer/portainer
+    container_name: portainer
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    restart: always
 volumes:
   odoo-web-data:
   odoo-db-data:
+  portainer_data:
