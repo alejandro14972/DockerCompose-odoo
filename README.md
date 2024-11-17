@@ -12,6 +12,7 @@ docker run --network odoo-network --name db -e POSTGRES_USER=odoo -e POSTGRES_PA
 docker run --network odoo-network -v odoo-data:/var/lib/odoo -d -p 8069:8069 --name odoo odoo
 docker run --network odoo-network -v odoo-data2:/var/lib/odoo -d -p 8070:8069 --name odoo2 odoo:15
 
+docker network create odoo-network
 
 docker run -d --network odoo-network -v odoo-db:/var/lib/postgresql/data \
 -e POSTGRES_USER=odoo -e POSTGRES_PASSWORD=odoo -e POSTGRES_DB=postgres \
