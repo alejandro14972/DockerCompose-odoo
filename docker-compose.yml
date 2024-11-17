@@ -28,7 +28,21 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
     restart: always
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    restart: always
+    ports:
+        - "8888:80"
+    depends_on:
+        -db
+    environment:
+        PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
+        PGADMIN_DEFAULT_PASSWORD: "admin"
+    volumes:
+        - pgadmin-data:/var/lib/pgadmin
 volumes:
+  pgadmin-data:
   odoo-web-data:
   odoo-db-data:
   portainer_data:
