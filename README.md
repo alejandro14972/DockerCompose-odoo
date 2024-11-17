@@ -18,5 +18,13 @@ docker run -d --network odoo-network -v odoo-db:/var/lib/postgresql/data \
 --name db postgres:15
 
 
+docker run -v odoo-data:/var/lib/odoo -d -p 8069:8069 \
+--network odoo-network --name odoo odoo
+
+docker run -v odoo-data2:/var/lib/odoo -d -p 8070:8069 \
+--network odoo-network --name odoo2 odoo:15
+
+
+
 
 ```
