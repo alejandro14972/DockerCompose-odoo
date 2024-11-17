@@ -1,4 +1,5 @@
 version: '2'
+
 services:
   web:
     image: odoo:15.0
@@ -10,6 +11,7 @@ services:
       - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
       - ./addons:/mnt/extra-addons
+
   db:
     image: postgres:15
     ports:
@@ -21,6 +23,7 @@ services:
       - PGDATA=/var/lib/postgresql/data/pgdata
     volumes:
       - odoo-db-data:/var/lib/postgresql/data/pgdata
+
   portainer:
     image: portainer/portainer
     container_name: portainer
@@ -30,19 +33,21 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
     restart: always
+
   pgadmin:
     image: dpage/pgadmin4
     container_name: pgadmin4_container
     restart: always
     ports:
-        - "8888:80"
+      - "8888:80"
     depends_on:
-        -db
+      - db
     environment:
-        PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
-        PGADMIN_DEFAULT_PASSWORD: "admin"
+      PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
     volumes:
-        - pgadmin-data:/var/lib/pgadmin
+      - pgadmin-data:/var/lib/pgadmin
+
 volumes:
   pgadmin-data:
   odoo-web-data:
