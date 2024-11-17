@@ -1,4 +1,4 @@
-# Odoo:15 + postgress:15 Docker Compose
+# Odoo:15 + postgress:15 + pgAdmin y portainer Docker Compose
 
 ## Deployment
 ```bash
