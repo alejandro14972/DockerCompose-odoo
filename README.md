@@ -5,4 +5,11 @@
 git clone https://github.com/alejandro14972/DockerCompose-odoo.git
 cd odoo-docker-compose
 docker-compose up -d
+
+
+docker network create odoo-network
+docker run --network odoo-network --name db -e POSTGRES_USER=odoo -e POSTGRES_PASSWORD=odoo -d postgres
+docker run --network odoo-network -v odoo-data:/var/lib/odoo -d -p 8069:8069 --name odoo odoo
+docker run --network odoo-network -v odoo-data2:/var/lib/odoo -d -p 8070:8069 --name odoo2 odoo:15
+
 ```
