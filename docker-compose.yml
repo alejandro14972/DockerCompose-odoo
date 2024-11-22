@@ -8,9 +8,9 @@ services:
     ports:
       - "8069:8069"
     volumes:
-      - odoo-web-data:/var/lib/odoo
-      - ./config:/etc/odoo
-      - ./addons:/mnt/extra-addons
+      - ./proyecto/odoo-web-data:/var/lib/odoo
+      - ./proyecto/config:/etc/odoo
+      - ./proyecto/addons:/mnt/extra-addons
 
   db:
     image: postgres:15
@@ -22,7 +22,7 @@ services:
       - POSTGRES_USER=odoo
       - PGDATA=/var/lib/postgresql/data/pgdata
     volumes:
-      - odoo-db-data:/var/lib/postgresql/data/pgdata
+      - ./proyecto/odoo-db-data:/var/lib/postgresql/data/pgdata
 
   portainer:
     image: portainer/portainer
@@ -31,7 +31,7 @@ services:
       - "9000:9000"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - portainer_data:/data
+      - ./proyecto/portainer_data:/data
     restart: always
 
   pgadmin:
@@ -45,11 +45,15 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
       PGADMIN_DEFAULT_PASSWORD: "admin"
-    volumes:
-      - pgadmin-data:/var/lib/pgadmin
 
 volumes:
-  pgadmin-data:
   odoo-web-data:
+    driver: local
   odoo-db-data:
+    driver: local
   portainer_data:
+    driver: local
+  addons:
+    driver: local
+  config:
+    driver: local
