@@ -18,5 +18,5 @@ http://localhost:8069/
 cd proyecto
 cd congig
 nano odoo.conf
-addons_path = DockerCompose-odoo/proyecto/addons,/mnt/extra-addons
+addons_path = /usr/lib/python3/dist-packages/odoo/addons, /mnt/extra-addons
 ```
