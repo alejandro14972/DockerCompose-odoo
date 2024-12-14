@@ -20,3 +20,16 @@ cd congig
 nano odoo.conf
 addons_path = /usr/lib/python3/dist-packages/odoo/addons, /mnt/extra-addons
 ```
+
+## Settings to connect Oddo to PgAdmin
+```bash
+Add new server
+--General
+  name: conexion
+--Connection
+  Host: db
+  Port:5432
+  Maintenance database: postgres
+  username: odoo
+  password: odoo
+```
