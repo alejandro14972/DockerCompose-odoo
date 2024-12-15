@@ -35,7 +35,7 @@ Add new server
 ```
 
 
-## Install from github Plan general Contable Español
+## Install from GitHub Plan general Contable Español
 ```bash
   https://github.com/OCA/l10n-spain/tree/15.0   (I recommend download zip)
   pip install -r requirements.txt
