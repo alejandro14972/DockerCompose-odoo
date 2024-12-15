@@ -33,3 +33,15 @@ Add new server
   username: odoo
   password: odoo
 ```
+
+
+## Install from github Plan general Contable Español
+```bash
+  https://github.com/OCA/l10n-spain/tree/15.0   (I recommend download zip)
+  pip install -r requirements.txt
+  copy it to folder 'addons'
+  activate developer mode
+  update applications
+  search 'España - Contabilidad (PCGE 2008)'
+  same for toponyms
+```
