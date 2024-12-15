@@ -43,5 +43,6 @@ Add new server
   activate developer mode
   update applications
   search 'España - Contabilidad (PCGE 2008)'
-  same for toponyms
+  same for toponyms (https://github.com/OCA/partner-contact/tree/15.0)
+  copy only to addons folder called base_location_geonames_import
 ```
